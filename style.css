@@ -1,9 +1,5 @@
 
- #wellcomeScreen 
 
-
-body{
-}
 #welcomeScreen{
     display: flex;
     justify-content: center;
@@ -18,14 +14,6 @@ body{
     
  }
 
- #wellcomeScreen
-
-
-
- #gameContainer
-
-
- #helpScreen
 
 
 .images{
