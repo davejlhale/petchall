@@ -5,15 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Ceberpet</title>
+    <title>Cyberpet</title>
 </head>
 <body>
+    <section id="content">
     <section id="welcomeScreen">
         <h1>welcome</h1>
 
 
     </section>
-    <section id="gameContainer"></section>
+    <section id="gameContainer">
+        <div id="gameContainerTop" class="gameContainerTop">
+        <div id="petPhoto" class="petPhoto">
+            
+        </div>
+        <div id="petStats" class="petStats">
+            <div id="health" class="stats">100%</div>
+            <div id="hunger" class="stats">100%</div>
+            <div id="thirsty" class="stats">100%</div>
+            <div id="sleepiness" class="stats">100%</div>
+            <div id="stamina" class="stats">100%</div>
+            <div id="happiness" class="stats">100%</div>
+        </div>
+        </div>
+        <div id="feedBackMsg" class="feedBackMsg"></div>
+        <div id="petActions" class="petActions">
+            <button id="feed">Feed</button>
+            <button id="walk">Walk</button>
+            <button id="drink">Drink</button>
+            <button id="sleep">Sleep</button>
+            <button id="play">Play</button>
+        </div>
+    </section>
+
     <section id="helpScreen"></section>
     <script src="app.js"></script>
 </body>
