@@ -52,7 +52,7 @@ export class Animal {
         this.decreaseStamina = 1;
         this.decreaseHappiness = 1;
 
-          //events - safeguard flag used in functions to prevent adding multiple listners
+        //events - safeguard flag used in functions to prevent adding multiple listners
         this.evtsAdded = false;
 
 
@@ -64,7 +64,7 @@ export class Animal {
     feed() {
         console.debug(`${this.constructor.name} feed function called`);
         this.hunger += this.boostHunger;
-        this.changeStat(this.hunger,20);
+        this.changeStat(this.hunger, 20);
     }
     walk() {
         console.debug(`${this.constructor.name} walk function called`);
@@ -79,16 +79,20 @@ export class Animal {
         this.sleepiness += this.boostSleepiness;
     }
 
-    changeStat(statToChange,amount){
-        statToChange += amount; 
+    changeStat(statToChange, amount) {
+        statToChange += amount;
         console.log(statToChange)
     }
-   
+
+    destroy(){
+        this.alive=false;
+        console.log("destory");
+    }
     //reduce stats every interval by stated amounts defined by base or extended class
     degradeStats() {
-        let id = setInterval(() => {
+        let id = setTimeout(() => {
+            clearTimeout(id);
             if (this.alive) {
-                clearTimeout(id);
                 //which stats degrade per interval
                 this.hunger = this.hunger -= this.decreaseHunger;
                 this.thirsty = this.thirsty -= this.decreaseThirtsy;
@@ -130,48 +134,27 @@ export class Animal {
     //search html for all elements wiith class of petAction and rename them from list in this.petActions
     assignActionButtons() {
         if (this.evtsAdded) { return; }
-        let elemBtns = document.getElementsByClassName('petAction')
+        let elemBtns = document.getElementById('petActions');
+        elemBtns.innerHTML='';
+        console.log(elemBtns)
         this.petActions.forEach((action, index) => {
-            let elem = document.getElementById(action);
-            try {
-                elemBtns[index].innerHTML = action;
-                elemBtns[index].id = action;
-                //moved to seperate fiunction to make error tracing easier
-                // elemBtns[index].addEventListener('click', () => {
-                //     this[action]();
-                // });
-            }
-            catch (err) {
-                console.debug(`error making "${action}" the innerHTML of ${elem} with the id ${action}`, err);
-            }
-        });
-        this.addEvents();
-    }
+            let btnElem;
 
-    //loop through this.petActions and find the element with an id matching the array[index]'s name
-    //add an eventlistner for click events and
-    //calls the method dynamically - so this class or base class needs corresponding method
-    addEvents(evt) {
-        if (this.evtsAdded) { return; }
-        this.evtsAdded = true;
-        this.petActions.forEach(action => {
-            try {
-                let elem = document.getElementById(action);
-                elem.addEventListener('click', () => {
-                    try {
-                        this[action]();
-                    } catch (err) {
-                        console.error(`looks like class or base class does not have the pet's action method defined`,err)
-                    }
-                });
-            } catch (err) {
-                if (err instanceof TypeError) {
-                    console.error(`couldnt find an HTML with id of ${action}`, err)
-                } else {
-                    console.error(err)
+            btnElem = document.createElement("button");
+            btnElem.innerHTML = action;
+            btnElem.id = action;
+           
+            elemBtns.appendChild(btnElem);
+            btnElem.addEventListener('click', () => {
+                try {
+                    this[action]();
+                } catch (err) {
+                    console.error(`looks like class or base class does not have the pet's action method defined`, err)
                 }
-            }
-        })
+            });
+           // this.addEvents();
+
+        })      
     }
 
     //update html - function called from this.degradeStats - its interval governs update tick/frame rate
@@ -184,11 +167,9 @@ export class Animal {
             if (petStats.length == 0) {
                 throw 'cant find any html elements class=stats to update stats';
             }
-console.log("ud");
             Array.from(petStats).forEach(stat => {
-                console.debug(stat)
-                stat.style.width = this[stat.id]+'%';
-                
+                stat.style.width = this[stat.id] + '%';
+
             })
         } catch (err) {
             console.error(err);
