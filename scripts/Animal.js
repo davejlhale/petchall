@@ -84,11 +84,15 @@ export class Animal {
         console.log(statToChange)
     }
 
+    destroy(){
+        this.alive=false;
+        console.log("destory");
+    }
     //reduce stats every interval by stated amounts defined by base or extended class
     degradeStats() {
-        let id = setInterval(() => {
+        let id = setTimeout(() => {
+            clearTimeout(id);
             if (this.alive) {
-                clearTimeout(id);
                 //which stats degrade per interval
                 this.hunger = this.hunger -= this.decreaseHunger;
                 this.thirsty = this.thirsty -= this.decreaseThirtsy;
@@ -130,7 +134,8 @@ export class Animal {
     //search html for all elements wiith class of petAction and rename them from list in this.petActions
     assignActionButtons() {
         if (this.evtsAdded) { return; }
-        let elemBtns = document.getElementById('petActions')
+        let elemBtns = document.getElementById('petActions');
+        elemBtns.innerHTML='';
         console.log(elemBtns)
         this.petActions.forEach((action, index) => {
             let btnElem;
