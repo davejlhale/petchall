@@ -1,4 +1,6 @@
-
+body{
+    background: #1d1c0d;
+}
 
 #welcomeScreen{
     display: flex;
@@ -9,10 +11,17 @@
     width: 80vw;
     height: 80vh;
     background-color: rgb(89, 185, 190);
-    /* "https://st2.depositphotos.com/1302980/7215/v/600/depositphotos_72158679-stock-illustration-fantasy-sci-fi-martian-background.jpg" */
     background-image: url("../images/charSelectBK.bmp");
     border-radius: 200px;
-    
+    margin: auto;
+ }
+ .h1{
+    font-size: 38px;
+    color: #b3b0e1;
+ }
+ .h2{
+    font-size: 30px;
+    color: #cfcee2;
  }
 
 
@@ -29,11 +38,16 @@
 
 .images img{
     display: flex;
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     flex: 1 1 50%;
 }
  
+
+
+
+
+/* .......................................................... */
 #gameContainer {
     display:flex;
     flex-direction: column;
@@ -140,3 +154,78 @@
  #gameContainer .returnButton button:hover {
     background-color: #b03c10;  
  }
+/* ........................................................... */
+
+/* help button */
+.button {
+    display: inline-block;
+    text-align: center;
+    vertical-align: text-bottom;
+    padding: 8px 24px;
+    border: 5px ridge #4d4803;
+    border-radius: 100px;
+    background: #e1aeae;
+    box-shadow: #dab4b4 0px 0px 20px 0px;
+    text-decoration: none;
+    margin: 10px;
+    width: 130px;
+}
+  
+    
+.button:hover {
+    border: 5px ridge #96450d;
+    background: #0c7217;
+    color: #ffffff;
+    text-decoration: none;
+    box-shadow: #0c7217 0px 0px 20px 0px;
+}
+
+
+/* popup window stuff */
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.75);
+    transition: opacity 1000ms;
+    visibility: hidden;
+    opacity: 0;
+  }
+
+.overlay:target {
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+  }
+  
+ .popup {
+    margin: 100px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 5px;
+    width: 40%;
+    height: 45%;
+    max-height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: relative;
+    transition: all 1000ms ease-in-out;
+    background: rgb(169, 160, 160);
+  }
+  
+  
+  .popup .close {
+    position: absolute;
+    font-size: 2em;
+    right: 0px;
+    top: 0px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #006634;
+  }
+  
+  .popup .close:hover {
+    color: red;
+  }
