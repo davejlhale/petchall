@@ -14,11 +14,12 @@ export class Animal {
         this.alive = true;
 
         //number is milliseconds per tick for reducing the stats in this.degradeStats() below
-        this.interval = 200;
+        this.interval = 20;
 
 
         //current stats used are 
         //health hunger thirtsy sleepiness stamina happiness
+
 
         //initial stats on spawn
         this.health = 100;
@@ -27,6 +28,9 @@ export class Animal {
         this.sleepiness = 100;
         this.stamina = 100;
         this.happiness = 100;
+
+        //how much damage the pet takes if any stat is 0
+        this.healthHit=1;
 
         //max stats
         this.maxHealth = 100;
@@ -56,15 +60,14 @@ export class Animal {
         this.evtsAdded = false;
 
 
-        //spawnPet
-        this.spawnPet()
+       
+        
     }
-
+    //default actions feed walk drink sleep
     //pet action methods - these methods from base or extended by class must match this.petActions list 
     feed() {
         console.debug(`${this.constructor.name} feed function called`);
         this.hunger += this.boostHunger;
-        this.changeStat(this.hunger, 20);
     }
     walk() {
         console.debug(`${this.constructor.name} walk function called`);
@@ -77,11 +80,6 @@ export class Animal {
     sleep() {
         console.debug(`${this.constructor.name} sleep function called`);
         this.sleepiness += this.boostSleepiness;
-    }
-
-    changeStat(statToChange, amount) {
-        statToChange += amount;
-        console.log(statToChange)
     }
 
     destroy(){
@@ -98,7 +96,11 @@ export class Animal {
                 this.thirsty = this.thirsty -= this.decreaseThirtsy;
                 this.sleepiness = this.sleepiness -= this.decreaseSleepiness;
                 this.happiness = this.happiness -= this.decreaseHappiness;
-
+                this.stamina = this.stamina -= this.decreaseStamina;
+               let numZeroStats =  [this.hunger,this.thirsty,this.sleepiness,
+                     this.happiness,this.stamina].filter(x=>x<=0).length;
+                        this.health-=this.healthHit*numZeroStats;
+                     console.log(this.health,this.healthHit,numZeroStats)
                 {
                     //do not remove
                     this.updateHTML();
@@ -169,7 +171,7 @@ export class Animal {
             }
             Array.from(petStats).forEach(stat => {
                 stat.style.width = this[stat.id] + '%';
-
+                stat.innerHTML=  this[stat.id] + '%'       
             })
         } catch (err) {
             console.error(err);

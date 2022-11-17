@@ -48,6 +48,8 @@
     height: 97vh;
     border: 5px solid black;
     margin: 0 auto;
+    height:80vh;
+    border: 2px solid black;
  }
 
  #gameContainer .gameContainerTop {
