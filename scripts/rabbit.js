@@ -6,12 +6,16 @@ import {Animal} from './Animal.js';
     constructor(name = "no name"){
         super(name);
         console.debug("create rabbit");
-        this.petActions = ['feed', 'pet', 'drink', 'sleep', 'dance', "sing", "crawl"];
+        this.petActions = ['smack', 'hit', 'boil', 'sleep', 'dance', "sing", "crawl"];
     }
 
     pet(){
         console.debug(`${this.constructor.name} feed function called`);
 
+    }
+
+    boil (){
+        this.health-=40;
     }
     
 

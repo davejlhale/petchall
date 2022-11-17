@@ -14,7 +14,7 @@ export class Animal {
         this.alive = true;
 
         //number is milliseconds per tick for reducing the stats in this.degradeStats() below
-        this.interval = 20;
+        this.interval = 200;
 
 
         //current stats used are 
@@ -33,8 +33,8 @@ export class Animal {
         this.healthHit=1;
 
         //max stats
-        this.maxHealth = 100;
-        this.maxHunger = 100;
+        this.maxHealth = 200;
+        this.maxHunger = 200;
         this.maxThirsty = 100;
         this.maxSleepiness = 100;
         this.maxStamina = 100;
