@@ -141,7 +141,7 @@ export class Animal {
 
     //if any stats are 0 start to reduce pet health
     checkHealth() {
-        if (!this.active) return
+        if (!this.alive) return
         //if any are 0 sound hurt
         let numZeroStats = [this.hunger, this.thirsty, this.sleepiness,
         this.happiness, this.stamina].filter(x => x <= 0).length;
