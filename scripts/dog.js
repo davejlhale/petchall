@@ -5,14 +5,14 @@ export class Dog extends Animal {
         super(name);
         console.debug("create dog");
         this.petActions = ['bark', 'feed', 'drink', 'sleep', 'walk', 'pet'];
-        this.hurtSound = "../audio/dogCrying.mp3"
+        this.hurtSound = "./audio/dogCrying.mp3"
         this.hurtSound = new Audio(this.hurtSound);
         this.interval = 30;
 
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
         console.log(this.imgCont)
-        img.src = "../images/dog.bmp"
+        img.src = "./images/dog.bmp"
         imgCont.innerHTML = "";
         imgCont.appendChild(img);
 
@@ -25,7 +25,7 @@ export class Dog extends Animal {
     bark() {
         if (!this.active) return
         this.audio.currentTime = 0;
-        this.audio.src = ("../audio/bark.mp3");
+        this.audio.src = ("./audio/bark.mp3");
         this.displayGiF("bark")
         this.audio.play();
         this.thirsty -= 15;
@@ -35,7 +35,7 @@ export class Dog extends Animal {
     feed() {
         if (!this.active) return
         this.audio.currentTime = 0;
-        this.playSound("../audio/dogEating.mp3");
+        this.playSound("./audio/dogEating.mp3");
         this.displayGiF("feed")
         this.hunger += 35;
         this.thirsty -= 5;
@@ -43,7 +43,7 @@ export class Dog extends Animal {
     drink() {
         if (!this.active) return
         this.audio.currentTime = 0;
-        this.audio.src = "../audio/dogDrink.mp3";
+        this.audio.src = "./audio/dogDrink.mp3";
         this.displayGiF("drink")
         this.audio.play();
         this.thirsty += 25;
@@ -59,7 +59,7 @@ export class Dog extends Animal {
         if (!this.active) return
         this.audio.currentTime = 0;
         this.active = false;
-        this.playSound("../audio/dogSnoring.mp3");
+        this.playSound("./audio/dogSnoring.mp3");
         this.displayGiF("sleep")
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 2; } }, 500);
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 2; } }, 1000);
@@ -75,7 +75,7 @@ export class Dog extends Animal {
     walk() {
         if (!this.active) return
         this.active = false;
-        this.playSound("../audio/dogPanting.wav");
+        this.playSound("./audio/dogPanting.wav");
         this.displayGiF("walk")
         setTimeout(() => { if (this.alive) { this.sleepiness -= 3; this.stamina += 10; this.happiness += 20; } }, 500);
         setTimeout(() => { if (this.alive) { this.sleepiness -= 3; this.stamina += 10; this.happiness += 20; } }, 1000);

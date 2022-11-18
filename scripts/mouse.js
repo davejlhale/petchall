@@ -19,7 +19,7 @@ import {Animal} from './Animal.js';
         this.thirsty-=10;
         this.stamina-=5;
         this.happiness+=5;
-        let a= new Audio("../audio/squeak.mp3")
+        let a= new Audio("./audio/squeak.mp3")
         a.play();
     }
 

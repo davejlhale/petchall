@@ -16,7 +16,7 @@ export class Rabbit extends Animal {
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
         console.log(this.imgCont)
-        img.src = "../images/rabbit.jpg"
+        img.src = "./images/rabbit.jpg"
         imgCont.innerHTML = "";
         imgCont.appendChild(img);
     }
@@ -25,7 +25,7 @@ export class Rabbit extends Animal {
         console.debug(`${this.constructor.name} feed function called`);
         this.health -= 30;
         this.audio.currentTime = 0;
-        this.audio.src = ("../audio/Hurt.mp3");
+        this.audio.src = ("./audio/Hurt.mp3");
         this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;
@@ -38,7 +38,7 @@ export class Rabbit extends Animal {
     boil() {
         this.health -= 30;
         this.audio.currentTime = 0;
-        this.audio.src = ("../audio/Hurt.mp3");
+        this.audio.src = ("./audio/Hurt.mp3");
         this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;
@@ -51,7 +51,7 @@ export class Rabbit extends Animal {
     stew() {
         this.health -= 30;
         this.audio.currentTime = 0;
-        this.audio.src = ("../audio/Hurt.mp3");
+        this.audio.src = ("./audio/Hurt.mp3");
         this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;
@@ -63,7 +63,7 @@ export class Rabbit extends Animal {
     fry() {
         this.health -= 30;
         this.audio.currentTime = 0;
-        this.audio.src = ("../audio/Hurt.mp3");
+        this.audio.src = ("./audio/Hurt.mp3");
         this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;

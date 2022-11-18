@@ -21,7 +21,7 @@ export class Cat extends Animal {
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
         console.log(this.imgCont)
-        img.src = "../images/cat.jpg"
+        img.src = "./images/cat.jpg"
         imgCont.innerHTML = "";
         imgCont.appendChild(img);
 

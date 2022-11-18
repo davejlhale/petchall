@@ -18,7 +18,7 @@ export class Animal {
         //number is milliseconds per tick for reducing the stats in this.degradeStats() below
         this.interval = 10;
         this.actionFeedback = "";
-        this.hurtSound = "../audio/Hurt.mp3"
+        this.hurtSound = "./audio/Hurt.mp3"
         //current stats used are 
         //health hunger thirtsy sleepiness stamina happiness
 
