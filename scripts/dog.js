@@ -9,7 +9,6 @@ export class Dog extends Animal {
         this.hurtSound = new Audio(this.hurtSound);
         this.interval = 30;
     }
-
     //make all pet action methods start with
     //if (!this.active) return
     //this.audio.currentTime = 0;
@@ -19,16 +18,17 @@ export class Dog extends Animal {
         if (!this.active) return
         this.audio.currentTime = 0;
         this.audio.src = ("../audio/bark.mp3");
+        this.displayGiF("bark")
         this.audio.play();
         this.thirsty -= 15;
         this.stamina -= 15;
         this.stamina += 25;
     }
-
     feed() {
         if (!this.active) return
         this.audio.currentTime = 0;
         this.playSound("../audio/dogEating.mp3");
+        this.displayGiF("feed")
         this.hunger += 35;
         this.thirsty -= 5;
     }
@@ -36,23 +36,23 @@ export class Dog extends Animal {
         if (!this.active) return
         this.audio.currentTime = 0;
         this.audio.src = "../audio/dogDrink.mp3";
+        this.displayGiF("drink")
         this.audio.play();
         this.thirsty += 25;
         this.stamina -= 5;
     }
-
     //example of damage / improve over time
     //using ugly but working setttimers
     //
     //NOTE the 
     //this.active = false;
     //which locks other methods untill the end of this toggles the flag
-
     sleep(sleepCount = 5) {
         if (!this.active) return
         this.audio.currentTime = 0;
         this.active = false;
         this.playSound("../audio/dogSnoring.mp3");
+        this.displayGiF("sleep")
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 2; } }, 500);
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 2; } }, 1000);
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 2; } }, 1500);
@@ -64,11 +64,11 @@ export class Dog extends Animal {
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 2; } }, 4500);
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.active = true; } }, 5000, this.active);
     }
-
     walk() {
         if (!this.active) return
         this.active = false;
         this.playSound("../audio/dogPanting.wav");
+        this.displayGiF("walk")
         setTimeout(() => { if (this.alive) { this.sleepiness -= 3; this.stamina += 10; this.happiness += 20; } }, 500);
         setTimeout(() => { if (this.alive) { this.sleepiness -= 3; this.stamina += 10; this.happiness += 20; } }, 1000);
         setTimeout(() => { if (this.alive) { this.sleepiness -= 3; this.stamina += 10; this.happiness += 20; } }, 1500);
@@ -77,9 +77,9 @@ export class Dog extends Animal {
     }
     //Action method not locked!! so can be spammed!
     pet() {
+        this.displayGiF("pet");
         this.happiness += 10;
     }
-
     //onhover events for action buttons - 
     //this method called by base classes init sequence
     //so we can override it within each extended class to override it

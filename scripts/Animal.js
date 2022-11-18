@@ -71,8 +71,9 @@ export class Animal {
         this.timeBorn = new Date();
         this.timeBorn = this.timeBorn.getTime();
         this.timeAlive = 0;
-        this.dateMsg =`Age 0 Days  0 hours`
+        this.dateMsg = `Age 0 Days  0 hours`
     }
+
 
     //see dog class for example
     //empty here for use akin to virtual function?
@@ -122,14 +123,11 @@ export class Animal {
                 const date1 = new Date(0);
                 const date2 = new Date((tn - this.timeBorn) * 10000);
                 const diffTime = Math.abs(date2 - date1);
-                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) - 1;
 
-                this.dateMsg =`Age: ${diffDays} days  ${date2.getHours()} hours`
+                this.dateMsg = `Age: ${diffDays} days  ${date2.getHours()} hours`
                 this.age();
             }
-
-            let hrs = this.timeAlive / 1000
-
         }, 50);//end settimeout
 
     }
@@ -212,6 +210,21 @@ export class Animal {
         });//end of foreach
         this.hoverEvents();
     }
+    displayGiF(action) {
+        try {
+            let imgCont = document.getElementById('petPhoto');
+            let img = document.createElement('img');
+            action = action.charAt(0).toUpperCase() + action.slice(1);
+            let src = "../images/" + this.petClass + action + '.gif';
+            img.class = "currentPic";
+            imgCont.appendChild(img);
+            console.log(src);
+        } catch (err) {
+            console.error(err);
+        }
+
+    }
+
 
     //update html - function called from this.degradeStats - its interval governs update tick/frame rate
     //finds all html element with a class="stats" and 
@@ -229,7 +242,7 @@ export class Animal {
         }
         this.clampStats();
 
-        let tmsg = document.getElementById('feedBackStats');
+        let tmsg = document.getElementById('feedBackStat');
         tmsg.innerHTML = this.dateMsg;
         try {
             let petStats = document.getElementsByClassName('stats')
