@@ -83,6 +83,7 @@ body {
     border: 2px solid black;
     width: 50%;
     height: 100%;
+    margin-left: 10px;
 }
 
 #gameContainer .petStats {
@@ -112,6 +113,13 @@ body {
     text-align: center;
     line-height: 30px;
     color: white;
+}
+
+#gameContainer .feedBackStat {
+    width: 100%;
+    height: 175px;
+    padding: 30px;
+    text-align: center;
 }
 
 #gameContainer .feedBackMsg {
@@ -147,6 +155,9 @@ body {
 }
 
 #gameContainer .returnButton button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     justify-content: space-evenly;
     background-color: #eb5e28;
