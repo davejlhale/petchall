@@ -105,6 +105,8 @@ export class Animal {
 
     destroy() {
         this.alive = false;
+        this.hurtSound.pause();
+        this.audio.pause();
         console.log("destory");
     }
     //reduce stats every interval by stated amounts defined 
@@ -139,6 +141,7 @@ export class Animal {
 
     //if any stats are 0 start to reduce pet health
     checkHealth() {
+        if (!this.active) return
         //if any are 0 sound hurt
         let numZeroStats = [this.hunger, this.thirsty, this.sleepiness,
         this.happiness, this.stamina].filter(x => x <= 0).length;
@@ -157,6 +160,7 @@ export class Animal {
         if (this.health <= 0) {
             this.alive = false;
             this.active = false;
+            this.hurtSound.pause();
             this.actionFeedback = this.deathMessage;
         }
     }
