@@ -14,7 +14,8 @@ body {
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    border: 3px solid #b3b0e1;;
+    border: 3px solid #b3b0e1;
+    ;
     width: 82vw;
     height: 80vh;
     background-color: rgb(89, 185, 190);
@@ -46,135 +47,10 @@ body {
     display: flex;
     width: 25%;
     height: 100%;
-    margin:5px 0px;;
+    margin: 5px 0px;
+    ;
 }
 
-/* .......................................................... */
-#gameContainer {
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    background-color: #fffcf2;
-    color: #252422;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 1000px;
-    height: 97vh;
-    border: 5px solid black;
-    margin: 0 auto;
-
-    border: 2px solid black;
-}
-
-#gameContainer .gameContainerTop {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100%;
-    height: 375px;
-}
-
-#gameContainer .petPhoto {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid black;
-    width: 50%;
-    height: 100%;
-    margin-left: 10px;
-}
-
-#gameContainer .petStats {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-}
-
-#gameContainer .petStats .statsBar {
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    height: 30px;
-    background: #ccc;
-    border-radius: 20px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
-}
-
-#gameContainer .petStats .statsBar .stats {
-    width: 100%;
-    height: 30px;
-    background: #5bb450;
-    border-radius: 20px;
-    text-align: center;
-    line-height: 30px;
-    color: white;
-}
-
-#gameContainer .feedBackStat {
-    width: 100%;
-    height: 175px;
-    padding: 30px;
-    text-align: center;
-}
-
-#gameContainer .feedBackMsg {
-    width: 100%;
-    height: 175px;
-    padding: 30px;
-    text-align: center;
-}
-
-#gameContainer .petActions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 175px;
-}
-
-#gameContainer .petActions button {
-    width: 100%;
-    justify-content: space-evenly;
-    background-color: #eb5e28;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-    margin: 10px;
-    padding: 20px;
-}
-
-#gameContainer .petActions button:hover {
-    background-color: #b03c10;
-}
-
-#gameContainer .returnButton button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    justify-content: space-evenly;
-    background-color: #eb5e28;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
-    font-size: 20px;
-    margin: 10px;
-    padding: 20px;
-}
-
-#gameContainer .returnButton button:hover {
-    background-color: #b03c10;
-}
-
-/* ........................................................... */
 
 /* help button */
 .button {
@@ -199,6 +75,141 @@ body {
     text-decoration: none;
     box-shadow: #0c7217 0px 0px 20px 0px;
 }
+
+/* .......................................................... */
+#gameContainer {
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    background-color: #fffcf2;
+    color: #252422;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 1000px;
+    height: 97vh;
+    border: 5px solid black;
+    margin: 0 auto;
+    border: 2px solid black;
+}
+
+#gameContainer .gameContainerTop {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+#gameContainer .petPhoto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    width: 50%;
+    margin-left: 10px;
+}
+
+#gameContainer .petPhoto img {
+   height:40vh;
+   width:100%;
+}
+#gameContainer a {
+    display: inline;
+}
+
+
+
+    
+#gameContainer .petStats {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 50%;
+}
+
+#gameContainer .petStats .statsBar {
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    height: 20px;
+    background: #ccc;
+    border-radius: 20px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+#gameContainer .petStats .statsBar .stats {
+    width: 100%;
+    height: 20px;
+    background: #5bb450;
+    border-radius: 20px;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+}
+#gameContainer .feedBackMsg,
+#gameContainer .feedBackStat {
+  background-color: whitesmoke;
+    padding: 10px;
+    text-align: center;
+    width:80%;
+    border:1px solid black;
+    border-radius:20px;
+}
+#gameContainer .feedBackMsg {margin-top:4px;}
+#gameContainer .feedBackStat {margin-top:10px;}
+#petActions {
+    padding:20px 0px;
+    margin-top:10px;
+}
+
+#gameContainer .petActions {
+    display: flex;
+    align-items: center;
+    width:100%;
+    height: 10%;
+    background-color: #eb5e28;
+    justify-content: space-around;
+    gap:1em;
+}
+#controlArea {
+    margin-top:20px;
+    display:flex;
+    flex-direction:column;
+    flex:1 1 100%;
+    background-color: #eda88d;;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px -3px 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+#gameContainer .returnButton {
+    display: flex;
+}
+#gameContainer .returnButton a,
+#gameContainer .petActions button {
+    display: flex;
+    background-color: #eb5e28;
+    color: #fff;
+    border-radius: 50px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    flex: 1  1 90%;
+    justify-content: space-evenly;
+ 
+}
+
+
+.petActions,
+#gameContainer .returnButton a:hover,
+#gameContainer .returnButton button:hover {
+    background-color: red;
+}
+
+/* ........................................................... */
+
 
 
 

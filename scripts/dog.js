@@ -8,6 +8,14 @@ export class Dog extends Animal {
         this.hurtSound = "../audio/dogCrying.mp3"
         this.hurtSound = new Audio(this.hurtSound);
         this.interval = 30;
+
+        let imgCont = document.getElementById('petPhoto');
+        let img = document.createElement('img');
+        console.log(this.imgCont)
+        img.src = "../images/dog.bmp"
+        imgCont.innerHTML = "";
+        imgCont.appendChild(img);
+
     }
     //make all pet action methods start with
     //if (!this.active) return

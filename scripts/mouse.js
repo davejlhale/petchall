@@ -4,7 +4,15 @@ import {Animal} from './Animal.js';
     constructor(name = "no name"){
         super(name);
         console.debug("create mouse");
-        this.petActions = ['Squeak','feed', 'pet', 'drink', 'sleep', 'dance', "sing", "crawl"];
+        this.petActions = ['Squeak','feed', 'wheel', 'drink', 'sleep'];
+
+
+        let imgCont = document.getElementById('petPhoto');
+        let img = document.createElement('img');
+        console.log(this.imgCont)
+        img.src = "../images/mouse.bmp"
+        imgCont.innerHTML = "";
+        imgCont.appendChild(img);
     }
 
     Squeak(){

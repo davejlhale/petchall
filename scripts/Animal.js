@@ -7,7 +7,7 @@ export class Animal {
         this.audio = new Audio();
         //these actions must be inherited methods from base class animal or be defined in an extended  class
         //html file must also have enough defined divs (for now) 1 per action in array
-        this.petActions = ['feed', 'walk', 'drink', 'sleep', 'dance', "sing", "crawl"]
+        this.petActions = ['feed', 'walk', 'drink', 'sleep']
 
         //when spawned this.alive will toggle to true also
         //see killPet() to toggle false
@@ -214,11 +214,15 @@ export class Animal {
         try {
             let imgCont = document.getElementById('petPhoto');
             let img = document.createElement('img');
+            let lc= this.petClass.toLowerCase() //+ this.petClass.slice(1);
+            let dir = "../images/"+ lc+"Gifs/"
             action = action.charAt(0).toUpperCase() + action.slice(1);
-            let src = "../images/" + this.petClass + action + '.gif';
+            console.log(dir + lc + action + '.gif');
+            img.src = dir + lc + action + '.gif';
             img.class = "currentPic";
+            imgCont.innerHTML="";
             imgCont.appendChild(img);
-            console.log(src);
+            
         } catch (err) {
             console.error(err);
         }
@@ -236,7 +240,7 @@ export class Animal {
             elem.style.color = "ee1111";
             elem.style.opacity = "0.6";
         } else {
-            elem.style.backgroundColor = "#fff";
+            elem.style.backgroundColor = "#eda88d";
             elem.style.color = "#eb5e28";
             elem.style.opacity = "1";
         }
