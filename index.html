@@ -6,151 +6,119 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Ceberpet</title>
+    <title>Cyberpet</title>
 </head>
 
 <body>
     <div id="content">
+
         <section id="welcomeScreen">
-
-        <h1 class="h1">Welcome To Cyberpet Game</h1>
-        <h2 class="h2">Choose your pet</h2>
-        <br>
-        <div class="images">
-            <!-- rabbit src="https://p.turbosquid.com/ts-thumb/xs/FBkDn0/dELNn6qB/cartoon_bunny_0011/jpg/1564215118/1920x1080/fit_q99/1f2db5d996eb4fca2273077bb9f4bd17766a3a23/cartoon_bunny_0011.jpg" -->
-            <img id ="rabbit" src="./images/rabbit.jpg" alt="rabbit"> 
-            <!-- cat src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b231dc4c-2cef-478b-a445-87961593d2c2/df9uam0-51878fcb-c5db-4d45-9060-34d2adc05872.png/v1/fill/w_1280,h_960,strp/sox_cat_from_lightyear_png_by_jayreganwright2005_df9uam0-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvYjIzMWRjNGMtMmNlZi00NzhiLWE0NDUtODc5NjE1OTNkMmMyXC9kZjl1YW0wLTUxODc4ZmNiLWM1ZGItNGQ0NS05MDYwLTM0ZDJhZGMwNTg3Mi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.DykcwFDLOikTpPB_Mz2aK7ZcWqvzVCahoByfPDXMX_I" -->
-            <img id="cat" src="./images/cat.jpg" alt="cat"> 
-            <!-- mouse src="https://toppng.com/uploads/preview/unique-tom-and-jerry-3d-images-tom-jerry-trotsch-verlag-tom-and-jerry-3d-11562918447zsnetjub5b.png" -->
-            <img id="mouse" src="images/mouse.bmp" alt="mouse"> 
-            <!-- dog src="https://p.turbosquid.com/ts-thumb/6c/GrIyJU/t9/fm_ts/png/1611194017/1920x1080/fit_q99/2c64fe10b357ac418f0950814c065a83f823fdfa/fm_ts.jpg" -->
-            <img id="dog" src="./images/dog.bmp" alt="dog"> 
-        </div>
-        <br>
-        <br>
-        <br>
-        <a class="button btn-info" href="#menu-help">Help</a>
-        
-
-
-
-    </section>
-    <section id="gameContainer">
-        <div id="gameContainerTopper" class="gameContainerTopper">
-            <h1>Ribingu Saibā Petto Gēmu</h1>
-        </div>
-        <div id="gameContainerTop" class="gameContainerTop">
-        <div id="petPhoto" class="petPhoto">
-        </div>
-
-        <div id="petStats" class="petStats">
-            <div id="statName" class="statName">Health</div>
-            <div id="healthBar" class="statsBar">
-                <div id="health" class="stats">100%</div>
+            <h1 class="h1">Welcome To Cyberpet Game</h1>
+            <h2 class="h2">Choose your pet</h2>
+            <br>
+            <div class="images">
+                <!-- rabbit src="https://p.turbosquid.com/ts-thumb/xs/FBkDn0/dELNn6qB/cartoon_bunny_0011/jpg/1564215118/1920x1080/fit_q99/1f2db5d996eb4fca2273077bb9f4bd17766a3a23/cartoon_bunny_0011.jpg" -->
+                <img id="rabbit" src="./images/rabbit.jpg" alt="rabbit">
+                <!-- cat src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b231dc4c-2cef-478b-a445-87961593d2c2/df9uam0-51878fcb-c5db-4d45-9060-34d2adc05872.png/v1/fill/w_1280,h_960,strp/sox_cat_from_lightyear_png_by_jayreganwright2005_df9uam0-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTYwIiwicGF0aCI6IlwvZlwvYjIzMWRjNGMtMmNlZi00NzhiLWE0NDUtODc5NjE1OTNkMmMyXC9kZjl1YW0wLTUxODc4ZmNiLWM1ZGItNGQ0NS05MDYwLTM0ZDJhZGMwNTg3Mi5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.DykcwFDLOikTpPB_Mz2aK7ZcWqvzVCahoByfPDXMX_I" -->
+                <img id="cat" src="./images/cat.jpg" alt="cat">
+                <!-- mouse src="https://toppng.com/uploads/preview/unique-tom-and-jerry-3d-images-tom-jerry-trotsch-verlag-tom-and-jerry-3d-11562918447zsnetjub5b.png" -->
+                <img id="mouse" src="images/mouse.bmp" alt="mouse">
+                <!-- dog src="https://p.turbosquid.com/ts-thumb/6c/GrIyJU/t9/fm_ts/png/1611194017/1920x1080/fit_q99/2c64fe10b357ac418f0950814c065a83f823fdfa/fm_ts.jpg" -->
+                <img id="dog" src="./images/dog.bmp" alt="dog">
             </div>
-            <div id="statName" class="statName">Hunger</div>
-            <div id="hungerBar" class="statsBar">
-                <div id="hunger" class="stats">100%</div>
-            </div>
-            <div id="statName" class="statName">Thirst</div>
-            <div id="thirstBar" class="statsBar">
-                <div id="thirsty" class="stats">100%</div>
-            </div>
-            <div id="statName" class="statName">Sleep</div>
-            <div id="sleepinessBar" class="statsBar">
-                <div id="sleepiness" class="stats">100%</div>
-            </div>
-            <div id="statName" class="statName">Stamina</div>
-            <div id="staminaBar" class="statsBar">
-                <div id="stamina" class="stats">100%</div>
-            </div>
-            <div id="statName" class="statName">Happiness</div>
-            <div id="happinessBar" class="statsBar">
-                <div id="happiness" class="stats">100%</div>
-            </div>
-        </div>
-        </div>
-        <div id="feedBackMsg" class="feedBackMsg">MESSAGE</div>
-        <div id="petActions" class="petActions"></div>
-        <div id="returnButton" class="returnButton">
-            <button id="menu">Main Menu</button> 
+            <br>
+            <br>
+            <br>
             <a class="button btn-info" href="#menu-help">Help</a>
-        </div>
-          
+        </section> <!-- -end char select -->
 
-        </section>
-        <!-- <section id="gameContainer">
+
+
+        <section id="gameContainer">
+            <div id="gameContainerTopper" class="gameContainerTopper">
+                <h1>Ribingu Saibā Petto Gēmu</h1>
+            </div>
             <div id="gameContainerTop" class="gameContainerTop">
                 <div id="petPhoto" class="petPhoto">
-
                 </div>
                 <div id="petStats" class="petStats">
                     <div id="statName" class="statName">Health</div>
-                    <div id="health" class="stats">
-                        <div id="statsBar" class="statsBar">100%</div>
+                    <div id="healthBar" class="statsBar">
+                        <div id="health" class="stats">100%</div>
                     </div>
                     <div id="statName" class="statName">Hunger</div>
-                    <div id="hunger" class="stats">
-                        <div id="statsBar" class="statsBar">100%</div>
+                    <div id="hungerBar" class="statsBar">
+                        <div id="hunger" class="stats">100%</div>
                     </div>
                     <div id="statName" class="statName">Thirst</div>
-                    <div id="thirsty" class="stats">
-                        <div id="statsBar" class="statsBar">100%</div>
+                    <div id="thirstBar" class="statsBar">
+                        <div id="thirsty" class="stats">100%</div>
                     </div>
                     <div id="statName" class="statName">Sleep</div>
-                    <div id="sleepiness" class="stats">
-                        <div id="statsBar" class="statsBar">100%</div>
+                    <div id="sleepinessBar" class="statsBar">
+                        <div id="sleepiness" class="stats">100%</div>
                     </div>
                     <div id="statName" class="statName">Stamina</div>
-                    <div id="stamina" class="stats">
-                        <div id="statsBar" class="statsBar">100%</div>
+                    <div id="staminaBar" class="statsBar">
+                        <div id="stamina" class="stats">100%</div>
                     </div>
                     <div id="statName" class="statName">Happiness</div>
-                    <div id="happiness" class="stats">
-                        <div id="statsBar" class="statsBar">100%</div>
+                    <div id="happinessBar" class="statsBar">
+                        <div id="happiness" class="stats">100%</div>
                     </div>
                 </div>
             </div>
-            <div id="feedBackMsg" class="feedBackMsg"></div>
-
-
-
+            <div id="feedBackMsg" class="feedBackMsg">MESSAGE</div>
             <div id="petActions" class="petActions"></div>
-
             <div id="returnButton" class="returnButton">
                 <button id="menu">Main Menu</button>
+                <a class="button btn-info" href="#menu-help">Help</a>
             </div>
-        </section> -->
+        </section><!-- end gamecontainer-->
 
-        <section id="helpScreen"><div id="menu-help" class="overlay">
-            <div class="popup">
-              <a class="close" href="#">&times;</a>
-              <div class="content">
-        
-                <h3>How To Play</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus autem sequi
-                  exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
-                  distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                  eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad quam
-                  numquam adipisci alias! Nemo nostrum soluta minima. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus autem sequi
-                  exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
-                  distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                  eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad quam
-                  numquam adipisci alias! Nemo nostrum soluta minima.Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus autem sequi
-                  exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
-                  distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                  eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad quam
-                  numquam adipisci alias! Nemo nostrum soluta minima.Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus autem sequi
-                  exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
-                  distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum,
-                  eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad quam
-                  numquam adipisci alias! Nemo nostrum soluta minima.</p>
-                Lorem ipsum dolornecessitatibus. Aspernatur impedit vel odio!
-              </div>
+
+        <section id="helpScreen">
+            <div id="menu-help" class="overlay">
+                <div class="popup">
+                    <a class="close" href="#">&times;</a>
+                    <div class="content">
+
+                        <h3>How To Play</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit delectus autem sequi
+                            exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
+                            distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Harum,
+                            eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad
+                            quam
+                            numquam adipisci alias! Nemo nostrum soluta minima. Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Reprehenderit delectus autem sequi
+                            exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
+                            distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Harum,
+                            eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad
+                            quam
+                            numquam adipisci alias! Nemo nostrum soluta minima.Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Reprehenderit delectus autem sequi
+                            exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
+                            distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Harum,
+                            eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad
+                            quam
+                            numquam adipisci alias! Nemo nostrum soluta minima.Lorem ipsum dolor sit amet consectetur
+                            adipisicing elit. Reprehenderit delectus autem sequi
+                            exercitationem quae praesentium consequatur eos, illum perferendis voluptatibus dolor iste
+                            distinctio voluptatum cupiditate Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Harum,
+                            eius est asperiores vel ratione aliquam quaerat earum repudiandae amet esse repellendus ad
+                            quam
+                            numquam adipisci alias! Nemo nostrum soluta minima.</p>
+                        Lorem ipsum dolornecessitatibus. Aspernatur impedit vel odio!
+                    </div>
+                </div>
             </div>
+        </section><!-- end help-->
 
-          </div></section>
-    </div>
+    </div><!-- end content-->
 
     <script type="module" src="./scripts/app.js"></script>
 </body>
