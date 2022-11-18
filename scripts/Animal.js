@@ -35,9 +35,9 @@ export class Animal {
         this.healthHit = .3;
 
         //the number of stats and the % they need to all be above to heal
-        this.healPct =30;
-        this.healNumStats=5;
-        this.healRate =0.4;
+        this.healPct = 30;
+        this.healNumStats = 5;
+        this.healRate = 0.4;
 
         //max stats
         this.maxHealth = 100;
@@ -67,7 +67,11 @@ export class Animal {
         this.hurtSound = new Audio(this.hurtSound);
         this.deathMessage = "Your pet died!"
 
-
+        //days alive stuff
+        this.timeBorn = new Date();
+        this.timeBorn = this.timeBorn.getTime();
+        this.timeAlive = 0;
+        this.dateMsg =`Age 0 Days  0 hours`
     }
 
     //see dog class for example
@@ -109,6 +113,26 @@ export class Animal {
         this.audio.pause();
         console.log("destory");
     }
+
+    age() {
+        let timeAliveId = setTimeout(() => {
+            clearTimeout(timeAliveId);
+            if (this.alive) {
+                let tn = new Date().getTime()
+                const date1 = new Date(0);
+                const date2 = new Date((tn - this.timeBorn) * 10000);
+                const diffTime = Math.abs(date2 - date1);
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+                this.dateMsg =`Age: ${diffDays} days  ${date2.getHours()} hours`
+                this.age();
+            }
+
+            let hrs = this.timeAlive / 1000
+
+        }, 50);//end settimeout
+
+    }
     //reduce stats every interval by stated amounts defined 
     //by base or extended class in constructor properties
     degradeStats() {
@@ -136,6 +160,7 @@ export class Animal {
     spawnPet() {
         this.alive = true;
         this.assignActionButtons();
+        this.age();
         this.degradeStats();
     }
 
@@ -152,7 +177,7 @@ export class Animal {
         }
         //if we are all above 
         numZeroStats = [this.hunger, this.thirsty, this.sleepiness,
-        this.happiness, this.stamina].filter(x => x > this.healPct ).length;
+        this.happiness, this.stamina].filter(x => x > this.healPct).length;
         if (numZeroStats == this.healNumStats) {
             this.health += this.healRate;;
             this.hurtSound.pause();
@@ -203,6 +228,9 @@ export class Animal {
             elem.style.opacity = "1";
         }
         this.clampStats();
+
+        let tmsg = document.getElementById('feedBackStats');
+        tmsg.innerHTML = this.dateMsg;
         try {
             let petStats = document.getElementsByClassName('stats')
             if (petStats.length == 0) {
