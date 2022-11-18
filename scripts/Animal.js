@@ -215,7 +215,7 @@ export class Animal {
             let imgCont = document.getElementById('petPhoto');
             let img = document.createElement('img');
             let lc= this.petClass.toLowerCase() //+ this.petClass.slice(1);
-            let dir = "../images/"+ lc+"Gifs/"
+            let dir = "./images/"+ lc+"Gifs/"
             action = action.charAt(0).toUpperCase() + action.slice(1);
             console.log(dir + lc + action + '.gif');
             img.src = dir + lc + action + '.gif';
