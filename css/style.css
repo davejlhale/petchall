@@ -93,7 +93,7 @@ body {
 
 
 .button:hover {
-    border: 5px ridge #96450d;
+   
     background: #cfcee2;
     text-decoration: none;
 
@@ -281,6 +281,9 @@ body {
 #gameContainer .petActions button:hover {
     cursor: pointer;
     border-style: inset;
+}
+.rbMenus:hover{
+    background: #cfcee2;
 }
 
 /* ........................................................... */
