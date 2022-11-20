@@ -72,6 +72,7 @@ export class Animal {
         this.timeBorn = this.timeBorn.getTime();
         this.timeAlive = 0;
         this.dateMsg = `Age 0 Days  0 hours`
+        this.actionFeedback ="Hello!!"
     }
 
 
@@ -236,12 +237,10 @@ export class Animal {
     updateHTML() {
         let elem = document.getElementById('petActions');
         if (!this.active || !this.alive) {
-            elem.style.backgroundColor = "#ee1111";
-            elem.style.color = "ee1111";
-            elem.style.opacity = "0.6";
+            elem.style.backgroundColor = "#ef372a";
+            elem.style.opacity = "1";
         } else {
-            elem.style.backgroundColor = "#eda88d";
-            elem.style.color = "#eb5e28";
+            elem.style.backgroundColor = "#f09570";
             elem.style.opacity = "1";
         }
         this.clampStats();

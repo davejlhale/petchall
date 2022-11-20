@@ -1,7 +1,12 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+
 body {
     background: #1d1c0d;
-    margin: 0px;
-    width: 100vw;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -15,7 +20,6 @@ body {
     flex-direction: column;
     align-items: center;
     border: 3px solid #b3b0e1;
-    ;
     width: 82vw;
     height: 80vh;
     background-color: rgb(89, 185, 190);
@@ -31,26 +35,44 @@ body {
 .h2 {
     font-size: 30px;
     color: #cfcee2;
+    margin-bottom: 20px;
 }
 
 .images {
-    border: 3px outset rgb(13, 35, 13);
     width: 60%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
-    z-index: 2;
+    border: 5px solid #cfcee2;
+    box-shadow: rgba(43, 43, 45, 0.8) 0px 10px 10px 0px;
+    background-color: #cfcee2;
+    margin-bottom: 20px;
 }
 
 .images img {
+    /* position:relative; */
     display: flex;
     width: 25%;
     height: 100%;
     margin: 5px 0px;
-    ;
+    border: 18px inset #cfcee2;
 }
 
+.images img:hover {
+    border: 3px inset white;
+    transition: 1s;
+    box-shadow: rgba(70, 140, 69, 0.8) 0px 0px 5px 5px;
+    animation-name: shake;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes shake {
+    100% {
+        transform: rotate(720deg)scale(1.4);
+    }
+}
 
 /* help button */
 .button {
@@ -60,9 +82,10 @@ body {
     padding: 8px 24px;
     border: 5px ridge #4d4803;
     border-radius: 100px;
-    background: #e1aeae;
-    box-shadow: #dab4b4 0px 0px 20px 0px;
+    background: #abaabd;
+    box-shadow: rgba(64, 64, 66, 0.5) 0px 10px 30px 0px;
     text-decoration: none;
+    color: #333;
     margin: 10px;
     width: 130px;
 }
@@ -70,10 +93,9 @@ body {
 
 .button:hover {
     border: 5px ridge #96450d;
-    background: #0c7217;
-    color: #ffffff;
+    background: #cfcee2;
     text-decoration: none;
-    box-shadow: #0c7217 0px 0px 20px 0px;
+
 }
 
 /* .......................................................... */
@@ -81,7 +103,7 @@ body {
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap');
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
-    background-color: #fffcf2;
+    background-color: #f09570;
     color: #252422;
     display: flex;
     flex-direction: column;
@@ -89,9 +111,7 @@ body {
     align-items: center;
     width: 1000px;
     height: 97vh;
-    border: 5px solid black;
-    margin: 0 auto;
-    border: 2px solid black;
+    border: 10px ridge #f17c4e;
 }
 
 #gameContainer .gameContainerTop {
@@ -99,113 +119,167 @@ body {
     justify-content: space-evenly;
     align-items: center;
     width: 100%;
+    border-top: 10px ridge #f17c4e;
+    border-bottom: 10px ridge #f17c4e;
+    flex: 1 1 50%;
 }
 
 #gameContainer .petPhoto {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 2px solid black;
-    width: 50%;
-    margin-left: 10px;
+    border: 5px solid black;
+    flex: 1 1 40%;
+    padding: 5px;
+    background-color: white;
+
 }
 
 #gameContainer .petPhoto img {
-   height:40vh;
-   width:100%;
-}
-#gameContainer a {
-    display: inline;
+    height: 40vh;
+    width: 100%;
+
 }
 
 
 
-    
+
 #gameContainer .petStats {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    width: 50%;
+    flex: 1 1 60%;
+    height: 100%;
+    background-color: wheat;
+    padding: 10px;
+    border: 5px solid black;
+    border-left: none;
+    font-size: 1.2em;
 }
 
 #gameContainer .petStats .statsBar {
     align-items: center;
     justify-content: center;
-    width: 90%;
-    height: 20px;
+    width: 80%;
+    height: 15px;
     background: #ccc;
-    border-radius: 20px;
+    border-radius: 15px;
     box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 #gameContainer .petStats .statsBar .stats {
-    width: 100%;
-    height: 20px;
     background: #5bb450;
-    border-radius: 20px;
+    border-radius: 15px;
     text-align: center;
-    line-height: 20px;
+    line-height: 15px;
     color: white;
 }
-#gameContainer .feedBackMsg,
-#gameContainer .feedBackStat {
-  background-color: whitesmoke;
-    padding: 10px;
-    text-align: center;
-    width:80%;
-    border:1px solid black;
-    border-radius:20px;
-}
-#gameContainer .feedBackMsg {margin-top:4px;}
-#gameContainer .feedBackStat {margin-top:10px;}
-#petActions {
-    padding:20px 0px;
-    margin-top:10px;
-}
 
-#gameContainer .petActions {
+#gameContainer #controlArea {
     display: flex;
-    align-items: center;
-    width:100%;
-    height: 10%;
-    background-color: #eb5e28;
-    justify-content: space-around;
-    gap:1em;
-}
-#controlArea {
-    margin-top:20px;
-    display:flex;
-    flex-direction:column;
-    flex:1 1 100%;
-    background-color: #eda88d;;
-    width:100%;
-    justify-content: center;
+    flex-direction: column;
+    flex: 1 1 50%;
+    background-color: #f09570;
+    width: 100%;
     align-items: center;
     box-shadow: 0px -3px 3px 0px rgba(0, 0, 0, 0.2);
 }
 
-#gameContainer .returnButton {
+#temp {
     display: flex;
+    flex-direction: column;
+    border-bottom: 10px ridge #f17c4e;
+    width: 100%;
+    align-items: center;
 }
-#gameContainer .returnButton a,
+
+#gameContainer .feedBackMsg,
+#gameContainer .feedBackStat {
+    background-color: whitesmoke;
+    padding: 5px 10px;
+    text-align: center;
+    width: 90%;
+    border: 5px inset #f17c4e;
+    border-radius: 20px;
+    flex: 1 1 10%;
+}
+
+#gameContainer .feedBackStat {
+    margin-top: 10px;
+}
+
+#gameContainer .feedBackMsg {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#gameContainer .returnButton,
+#gameContainer .petActions {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: space-around;
+    gap: 1em;
+    padding: 10px 0px;
+}
+
+#gameContainer .petActions {
+    flex: 1 1 40%;
+    background-color: #f17c4e;
+}
+
+#gameContainer .returnButton {
+    justify-content: center;
+    gap: 4em;
+    flex: 1 1 30%;
+    background-color: rgb(39, 36, 36);
+    ;
+    border-top: 10px ridge #f17c4e;
+}
+
+#gameContainer .petActions button:last-child {
+    margin-right: 30px;
+}
+
+#gameContainer .petActions button:first-child {
+    margin-left: 30px;
+}
+
+
 #gameContainer .petActions button {
     display: flex;
     background-color: #eb5e28;
     color: #fff;
     border-radius: 50px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
     font-size: 20px;
-    flex: 1  1 90%;
+    flex: 1 1 90%;
     justify-content: space-evenly;
- 
 }
 
+.rbMenus {
+    background-color: #a08b82;
+    border: 3px outset rgb(172, 165, 165);
+    ;
+    color: #fff;
+    border-radius: 50px;
+    font-size: 20px;
+    padding: 2px 25px;
+    width: 14vw;
+    color: rgb(39, 36, 36);
 
-.petActions,
-#gameContainer .returnButton a:hover,
-#gameContainer .returnButton button:hover {
-    background-color: red;
+}
+
+.rbMenus,
+#gameContainer .petActions button {
+    cursor: pointer;
+}
+
+.rbMenus:hover,
+#gameContainer .petActions button:hover {
+    cursor: pointer;
+    border-style: inset;
 }
 
 /* ........................................................... */
