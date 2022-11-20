@@ -8,7 +8,6 @@ import {Animal} from './Animal.js';
 
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
-        console.log(this.imgCont)
         img.src = "./images/mouse.jpg"
         imgCont.innerHTML = "";
         imgCont.appendChild(img);

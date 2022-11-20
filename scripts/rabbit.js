@@ -15,7 +15,6 @@ export class Rabbit extends Animal {
         this.healPct = 1;
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
-        console.log(this.imgCont)
         img.src = "./images/rabbit.jpg"
         imgCont.innerHTML = "";
         imgCont.appendChild(img);
