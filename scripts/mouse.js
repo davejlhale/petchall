@@ -6,7 +6,6 @@ import {Animal} from './Animal.js';
         console.debug("create mouse");
         this.petActions.push(['Squeak']);
 
-
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
         console.log(this.imgCont)

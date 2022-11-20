@@ -24,53 +24,48 @@ export class Rabbit extends Animal {
     roast() {
         console.debug(`${this.constructor.name} feed function called`);
         this.health -= 30;
-        this.audio.currentTime = 0;
-        this.audio.src = ("./audio/Hurt.mp3");
-        this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;
         this.sleepiness -= 25;
         this.stamina -= 25;;
         this.happiness -= 25;
-        this.displayGiF("fry")
+        this.displayGiF("fry");
+        
+        this.playSound("./audio/ouch.mp3");
     }
 
     boil() {
         this.health -= 30;
-        this.audio.currentTime = 0;
-        this.audio.src = ("./audio/Hurt.mp3");
-        this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;
         this.sleepiness -= 25;
         this.stamina -= 25;;
         this.happiness -= 25;
-        this.displayGiF("boil")
+        this.displayGiF("boil");
+        
+        this.playSound("./audio/ouch.mp3");
     }
 
     stew() {
         this.health -= 30;
-        this.audio.currentTime = 0;
-        this.audio.src = ("./audio/Hurt.mp3");
-        this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;
         this.sleepiness -= 25;
         this.stamina -= 25;;
         this.happiness -= 25;
-        this.displayGiF("stew")
+        this.displayGiF("stew");
+        
+        this.playSound("./audio/ouch.mp3");
     }
     fry() {
         this.health -= 30;
-        this.audio.currentTime = 0;
-        this.audio.src = ("./audio/Hurt.mp3");
-        this.audio.play();
         this.hunger -= 25;
         this.thirsty -= 25;
         this.sleepiness -= 25;
         this.stamina -= 25;;
         this.happiness -= 25;
-        this.displayGiF("fry")
+        this.displayGiF("fry");
+        this.playSound("./audio/ouch.mp3");
     }
 
     hoverEvents() {
