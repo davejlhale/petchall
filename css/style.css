@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* background: url('../images/images.jfif'); */
+    background: url('../images/images.jfif');
 }
 
 #welcomeScreen {
