@@ -11,7 +11,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('../images/images.jfif');
+    /* background: url('../images/images.jfif'); */
 }
 
 #welcomeScreen {
@@ -23,7 +23,8 @@ body {
     width: 82vw;
     height: 80vh;
     background-color: rgb(89, 185, 190);
-    background-image: url("../images/charSelectBK.bmp");
+    background-image: url("../images/charSelectBK2.bmp");
+    background-size: 70% ;
     border-radius: 200px;
 }
 

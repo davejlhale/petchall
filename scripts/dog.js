@@ -12,7 +12,7 @@ export class Dog extends Animal {
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
         console.log(this.imgCont)
-        img.src = "./images/dog.bmp"
+        img.src = "./images/dog.jpg"
         imgCont.innerHTML = "";
         imgCont.appendChild(img);
 
