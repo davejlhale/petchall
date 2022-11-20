@@ -236,7 +236,6 @@ body {
     gap: 4em;
     flex: 1 1 30%;
     background-color: rgb(39, 36, 36);
-    ;
     border-top: 10px ridge #f17c4e;
 }
 
@@ -257,12 +256,13 @@ body {
     font-size: 20px;
     flex: 1 1 90%;
     justify-content: space-evenly;
+    border: 3px outset #da8462;
+
 }
 
 .rbMenus {
     background-color: #a08b82;
     border: 3px outset rgb(172, 165, 165);
-    ;
     color: #fff;
     border-radius: 50px;
     font-size: 20px;

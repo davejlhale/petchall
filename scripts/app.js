@@ -48,7 +48,6 @@ const addevl = (elem) => {
 
         }
         myPet.spawnPet();
-        console.table(myPet);
     })
 }
 

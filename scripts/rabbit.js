@@ -73,5 +73,23 @@ export class Rabbit extends Animal {
         this.displayGiF("fry")
     }
 
-
+    hoverEvents() {
+        super.hoverEvents();;
+        let btn = document.getElementById('roast');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Reduces everything by 25% !!! Cooking your pet again :( ";
+        });
+        btn = document.getElementById('boil');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Reduces everything by 25% !!! Cooking your pet again :( ";
+        });
+        btn = document.getElementById('fry');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Reduces everything by 25% !!! Cooking your pet again :( ";
+        });
+        btn = document.getElementById('stew');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Reduces everything by 25% !!! Cooking your pet again :( ";
+        });
+    }
 }

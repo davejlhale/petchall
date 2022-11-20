@@ -11,30 +11,24 @@ export class Dog extends Animal {
 
         let imgCont = document.getElementById('petPhoto');
         let img = document.createElement('img');
-        console.log(this.imgCont)
         img.src = "./images/dog.jpg"
         imgCont.innerHTML = "";
         imgCont.appendChild(img);
-
     }
     //make all pet action methods start with
     //if (!this.active) return
-    //this.audio.currentTime = 0;
     //cant enter if pet is active on another we lock
     //stop sound playing from previous actions
     bark() {
         if (!this.active) return
-        this.audio.currentTime = 0;
-        this.audio.src = ("./audio/bark.mp3");
+        this.playSound ("./audio/bark.mp3");
         this.displayGiF("bark")
-        this.audio.play();
         this.thirsty -= 15;
         this.stamina -= 15;
         this.stamina += 25;
     }
     feed() {
         if (!this.active) return
-        this.audio.currentTime = 0;
         this.playSound("./audio/dogEating.mp3");
         this.displayGiF("feed")
         this.hunger += 35;
@@ -42,10 +36,8 @@ export class Dog extends Animal {
     }
     drink() {
         if (!this.active) return
-        this.audio.currentTime = 0;
-        this.audio.src = "./audio/dogDrink.mp3";
+        this.playSound("./audio/dogDrink.mp3");
         this.displayGiF("drink")
-        this.audio.play();
         this.thirsty += 25;
         this.stamina -= 5;
     }
@@ -57,7 +49,6 @@ export class Dog extends Animal {
     //which locks other methods untill the end of this toggles the flag
     sleep(sleepCount = 5) {
         if (!this.active) return
-        this.audio.currentTime = 0;
         this.active = false;
         this.playSound("./audio/dogSnoring.mp3");
         this.displayGiF("sleep")

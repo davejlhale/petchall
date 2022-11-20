@@ -62,7 +62,7 @@ export class Cat extends Animal {
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 5; } }, 2500);
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness += 5; } }, 3000);
         setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness +=5; } }, 3500);
-        setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.active = true; } }, 7000, this.active); 
+        setTimeout(() => { if (this.alive) { this.sleepiness += 10; this.happiness +=5; this.active = true; } }, 7000, this.active); 
         this.displayGiF("hunt")
     }
 
@@ -93,10 +93,37 @@ export class Cat extends Animal {
         if (!this.active) return
         this.audio.currentTime = 0;
         this.playSound("");
-        this.happiness+=20;
+        this.happiness+=40;
         this.thirsty-=15;
         this.hunger-=15;
         this.displayGiF("play")
+    }
+
+    hoverEvents() {
+        let btn = document.getElementById('milk');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Improves thirst by 30%";
+        });
+        btn = document.getElementById('sleep');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Improves Sleep by a lot! over 7 seconds";
+        })
+        btn = document.getElementById('hunt');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Improves happiness by 40% over 4 seconds";
+        })
+        btn = document.getElementById('eat');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Improves hunger by 30%"
+        })
+        btn = document.getElementById('purr');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Improves happiness by 30% and stamina by 10%"
+        })
+        btn = document.getElementById('play');
+        btn.addEventListener('mouseover', () => {
+            this.actionFeedback = "Improves happiness by 40%, but reduces thirst and hunger by 15%"
+        })
     }
 
 }

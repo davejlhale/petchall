@@ -4,24 +4,25 @@ export class Animal {
         //general pet info
         this.petName = name;
         this.petClass = this.constructor.name;
-        this.audio = new Audio();
-        //these actions must be inherited methods from base class animal or be defined in an extended  class
-        //html file must also have enough defined divs (for now) 1 per action in array
-        this.petActions = ['feed', 'walk', 'drink', 'sleep']
+
+        //these actions must be inherited methods from base class animal 
+        //or be defined as methods in an extended class
+        //to many may mess up html layout flex container
+        this.petActions = ['feed', 'walk', 'drink', 'sleep', 'play']
 
         //when spawned this.alive will toggle to true also
         //see killPet() to toggle false
         this.alive = true;
+
         //used to prevent an actions when false
         this.active = true;
 
-        //number is milliseconds per tick for reducing the stats in this.degradeStats() below
-        this.interval = 10;
-        this.actionFeedback = "";
+        //sound and feedbackmsg setup
+        this.audio = new Audio();
         this.hurtSound = "./audio/Hurt.mp3"
-        //current stats used are 
-        //health hunger thirtsy sleepiness stamina happiness
-
+        this.hurtSound = new Audio(this.hurtSound);
+        this.actionFeedback = "Hello!!"
+        this.deathMessage = "Your pet died!"
 
         //initial stats on spawn
         this.health = 100;
@@ -39,23 +40,7 @@ export class Animal {
         this.healNumStats = 5;
         this.healRate = 0.4;
 
-        //max stats
-        this.maxHealth = 100;
-        this.maxHunger = 100;
-        this.maxThirsty = 100;
-        this.maxSleepiness = 100;
-        this.maxStamina = 100;
-        this.maxHappiness = 100;
-
-        //pet action/button stat boosts
-        this.boostHunger = 5;
-        this.boostHealth = 5;
-        this.boostThirtsy = 5;
-        this.boostSleepiness = 25;
-        this.boostStamina = 5;
-        this.boostHappiness = 100;
-
-        //stat degradation
+        //stat degradation per update cycle
         this.decreaseHunger = 0.2;
         this.decreaseThirtsy = 0.2;
         this.decreaseSleepiness = .2;
@@ -64,56 +49,87 @@ export class Animal {
 
         //events - safeguard flag used in functions to prevent adding multiple listners
         this.evtsAdded = false;
-        this.hurtSound = new Audio(this.hurtSound);
-        this.deathMessage = "Your pet died!"
 
         //days alive stuff
         this.timeBorn = new Date();
         this.timeBorn = this.timeBorn.getTime();
         this.timeAlive = 0;
         this.dateMsg = `Age 0 Days  0 hours`
-        this.actionFeedback ="Hello!!"
+
+
     }
 
 
     //see dog class for example
     //empty here for use akin to virtual function?
-    hoverEvents() { }
+    hoverEvents() {
+        try {
+            let btn = document.getElementById('feed');
+            btn.addEventListener('mouseover', () => {
+                this.actionFeedback = "Improves hunger by 25%";
+            });
+            btn = document.getElementById('walk');
+            btn.addEventListener('mouseover', () => {
+                this.actionFeedback = "Improves stamina by 25%";
+            });
+            btn = document.getElementById('drink');
+            btn.addEventListener('mouseover', () => {
+                this.actionFeedback = "Improves thirst by 25%";
+            });
+            btn = document.getElementById('sleep');
+            btn.addEventListener('mouseover', () => {
+                this.actionFeedback = "Improves sleep by 25%";
+            });
+            btn = document.getElementById('play');
+            btn.addEventListener('mouseover', () => {
+                this.actionFeedback = "Improves happiness by 25%";
+            });
+        } catch (err) {
+            console.debug("error attaching onhover events", err)
+        }
+    }
     //default actions feed walk drink sleep
     //pet action methods - these methods from base or extended by class must match this.petActions list 
+    play() {
+        if (!this.active) return
+        this.happiness += 25;
+    }
     feed() {
         if (!this.active) return
         console.debug(`${this.constructor.name} feed function called`);
-        this.hunger += this.boostHunger;
+        this.hunger += 25;
     }
     walk() {
         if (!this.active) return
         console.debug(`${this.constructor.name} walk function called`);
-        this.stamina += this.boostStamina;
+        this.stamina += 25;
     }
     drink() {
         if (!this.active) return
         console.debug(`${this.constructor.name} drink function called`);
-        this.thirsty += this.boostThirtsy;
+        this.thirsty += 25;
     }
     sleep() {
         if (!this.active) return
         console.debug(`${this.constructor.name} sleep function called`);
-        this.sleepiness += this.boostSleepiness;
+        this.sleepiness += 25;
     }
 
     //helper function to simplify adding sound to any given pet action method
     playSound(src) {
+        try{
         this.audio.currentTime = 0;
         this.audio.src = src;
         this.audio.play();
+        } catch(err){
+            console.debug(`error trying to play sound ${src}`,err)
+        }
     }
 
     destroy() {
         this.alive = false;
         this.hurtSound.pause();
         this.audio.pause();
-        console.log("destory");
     }
 
     age() {
@@ -149,9 +165,8 @@ export class Animal {
                 this.checkHealth();
                 this.updateHTML();
                 this.degradeStats();
-
             }
-        }, this.interval)
+        }, 20)
     }
 
     //DO NOT CHANGE BELOW
@@ -194,10 +209,8 @@ export class Animal {
         if (this.evtsAdded) { return; }
         let elemBtns = document.getElementById('petActions');
         elemBtns.innerHTML = '';
-        console.log(elemBtns)
         this.petActions.forEach((action, index) => {
-            let btnElem;
-            btnElem = document.createElement("button");
+            let btnElem = document.createElement("button");
             btnElem.innerHTML = action;
             btnElem.id = action;
             elemBtns.appendChild(btnElem);
@@ -215,15 +228,13 @@ export class Animal {
         try {
             let imgCont = document.getElementById('petPhoto');
             let img = document.createElement('img');
-            let lc= this.petClass.toLowerCase() //+ this.petClass.slice(1);
-            let dir = "./images/"+ lc+"Gifs/"
+            let lc = this.petClass.toLowerCase() //+ this.petClass.slice(1);
+            let dir = "./images/" + lc + "Gifs/"
             action = action.charAt(0).toUpperCase() + action.slice(1);
-            console.log(dir + lc + action + '.gif');
             img.src = dir + lc + action + '.gif';
             img.class = "currentPic";
-            imgCont.innerHTML="";
+            imgCont.innerHTML = "";
             imgCont.appendChild(img);
-            
         } catch (err) {
             console.error(err);
         }
@@ -243,6 +254,8 @@ export class Animal {
             elem.style.backgroundColor = "#f09570";
             elem.style.opacity = "1";
         }
+
+
         this.clampStats();
 
         let tmsg = document.getElementById('feedBackStat');
@@ -265,12 +278,12 @@ export class Animal {
     }
 
     clampStats() {
-        this.hunger = Math.min(Math.max((this.hunger), 0), this.maxHunger);
-        this.thirsty = Math.min(Math.max((this.thirsty), 0), this.maxThirsty);
-        this.sleepiness = Math.min(Math.max((this.sleepiness), 0), this.maxSleepiness);
-        this.stamina = Math.min(Math.max((this.stamina), 0), this.maxStamina);
-        this.health = Math.min(Math.max((this.health), 0), this.maxHealth);
-        this.happiness = Math.min(Math.max((this.happiness), 0), this.maxHappiness);
+        this.hunger = Math.min(Math.max((this.hunger), 0), 100);
+        this.thirsty = Math.min(Math.max((this.thirsty), 0), 100);
+        this.sleepiness = Math.min(Math.max((this.sleepiness), 0), 100);
+        this.stamina = Math.min(Math.max((this.stamina), 0), 100);
+        this.health = Math.min(Math.max((this.health), 0), 100);
+        this.happiness = Math.min(Math.max((this.happiness), 0), 100);
     }
 
     //todo
