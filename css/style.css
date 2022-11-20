@@ -106,7 +106,7 @@ body {
     font-weight: 700;
     background-color: #f09570;
     color: #252422;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
