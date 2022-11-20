@@ -181,8 +181,7 @@ export class Animal {
     //if any stats are 0 start to reduce pet health
     checkHealth() {
         if (!this.alive) return
-
-       
+      
         //if any are 0 sound hurt
         let numZeroStats = [this.hunger, this.thirsty, this.sleepiness,
         this.happiness, this.stamina].filter(x => x <= 0).length;
@@ -190,7 +189,6 @@ export class Animal {
             this.health -= this.healthHit * numZeroStats;
             if (this.hurtSound.paused){
                 this.hurtSound.play();
-console.log("start hurts")
             }
         }
         //if we are all above 
@@ -205,10 +203,6 @@ console.log("start hurts")
             this.active = false;
             this.hurtSound.pause();
             this.actionFeedback = this.deathMessage;
-        }
-        if (this.health>=99) {
-            console.log("pausing hurt")
-            this.hurtSound.currentTime=0;
         }
     }
 
@@ -262,7 +256,6 @@ console.log("start hurts")
             elem.style.backgroundColor = "#f09570";
             elem.style.opacity = "1";
         }
-
 
         this.clampStats();
 

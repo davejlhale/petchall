@@ -11,8 +11,7 @@ let dogSelect = document.getElementById('dog');
 let menu = document.getElementById('menu');
 let charSelect = document.getElementById(`welcomeScreen`);
 let gameScreen = document.getElementById(`gameContainer`);
-gameScreen.style.display = "none";
-charSelect.style.display = "flex";
+
 let myPet = null
 
 menu.addEventListener('click', () => {
@@ -27,12 +26,15 @@ menu.addEventListener('click', () => {
 const addevl = (elem) => {
     elem.addEventListener('click', () => {
         console.log(elem.id)
+        gameScreen.style.animation ="fade-in 1s forwards"
+        charSelect.style.animation ="fade-in 1s forwards"
         gameScreen.style.display = "flex";
         charSelect.style.display = "none";
 
 
         switch (elem.id) {
             case "rabbit":
+               
                 myPet = new Rabbit();
                 break;
             case "cat":

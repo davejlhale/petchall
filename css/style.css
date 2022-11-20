@@ -2,16 +2,32 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    cursor:url(../images/paw.png), auto;
 }
 
+@keyframes fade-in{
+    0% {
+    transform: scale(0.1) rotateY(90deg) }
+    
+    100% {}
 
+}
+@keyframes fade-out{
+    0% {}
+    100% {  
+        transform: scale(0);}
+
+}
 body {
+    
     background: #1d1c0d;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     background: url('../images/images.jfif');
+    
+
 }
 
 #welcomeScreen {
@@ -272,14 +288,11 @@ body {
 
 }
 
-.rbMenus,
-#gameContainer .petActions button {
-    cursor: pointer;
-}
+
 
 .rbMenus:hover,
 #gameContainer .petActions button:hover {
-    cursor: pointer;
+  
     border-style: inset;
 }
 .rbMenus:hover{
